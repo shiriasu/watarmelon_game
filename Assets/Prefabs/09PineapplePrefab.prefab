@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: fruitsType
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 907985326309642619, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
+      propertyPath: nextFruitsPrefab
+      value: 
+      objectReference: {fileID: 8215691583720486390, guid: a633de57ab1611844a281e6b6f239ba6, type: 3}
     - target: {fileID: 6503922174229925744, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
       propertyPath: m_RootOrder
       value: 0

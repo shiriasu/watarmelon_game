@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: fruitsType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 907985326309642619, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
+      propertyPath: nextFruitsPrefab
+      value: 
+      objectReference: {fileID: 965066335170926597, guid: 4038d734a4f01ff4795cb248feaaa87f, type: 3}
     - target: {fileID: 6503922174229925744, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -58,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6677368503732557122, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
       propertyPath: m_Radius
-      value: 0.45
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7905489306977619867, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
       propertyPath: m_Sprite

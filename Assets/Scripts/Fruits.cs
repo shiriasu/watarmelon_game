@@ -20,18 +20,44 @@ public enum FRUITS_TYPE
 public class Fruits : MonoBehaviour
 {
     public FRUITS_TYPE fruitsType;
+    private static int fruits_serial = 0;
+    private int my_serial;
+    public bool isDestroyed = false;
 
-    private void OnCollisionEnter2D(Collision2D other)
+    [SerializeField] private Fruits nextFruitsPrefab;
+
+    private void Awake()
     {
-        if(other.gameObject.TryGetComponent(out Fruits otherFruits))
+        my_serial = fruits_serial;
+        fruits_serial++;
+    }
+
+        private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.TryGetComponent(out Fruits otherFruits))
         {
-            //相手のフルーツタイプと自分のフルーツタイプとが同じならば削除を行う
-            //ex)いちご,いちご -> 消える　いちご,さくらんぼ -> 消えない
-            if(otherFruits.fruitsType == fruitsType)
+            if (otherFruits.fruitsType == fruitsType)
             {
-                Destroy(gameObject);
+                if (nextFruitsPrefab != null && my_serial < otherFruits.my_serial)
+                {
+                    Destroy(gameObject);
+                    Destroy(other.gameObject);
+                    isDestroyed = true;
+                    otherFruits.isDestroyed = true;
+
+                    Vector3 center = (transform.position + other.transform.position) / 2;
+                    Quaternion rotation = Quaternion.Lerp(transform.rotation, other.transform.rotation, 0.5f);
+                    Fruits next = Instantiate(nextFruitsPrefab, center, rotation);
+
+                    // ２つの速度の平均をとる
+                    Rigidbody2D nextRb = next.GetComponent<Rigidbody2D>();
+                    Vector3 velocity = (GetComponent<Rigidbody2D>().velocity + other.gameObject.GetComponent<Rigidbody2D>().velocity) / 2;
+                    nextRb.velocity = velocity;
+
+                    float angularVelocity = (GetComponent<Rigidbody2D>().angularVelocity + other.gameObject.GetComponent<Rigidbody2D>().angularVelocity) / 2;
+                    nextRb.angularVelocity = angularVelocity;
+                }
             }
         }
     }
-    
 }
