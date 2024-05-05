@@ -38,9 +38,11 @@ public class Fruits : MonoBehaviour
         {
             if (otherFruits.fruitsType == fruitsType)
             {
+                Destroy(gameObject);
+                
                 if (nextFruitsPrefab != null && my_serial < otherFruits.my_serial)
                 {
-                    Destroy(gameObject);
+                    
                     Destroy(other.gameObject);
                     isDestroyed = true;
                     otherFruits.isDestroyed = true;
@@ -56,6 +58,8 @@ public class Fruits : MonoBehaviour
 
                     float angularVelocity = (GetComponent<Rigidbody2D>().angularVelocity + other.gameObject.GetComponent<Rigidbody2D>().angularVelocity) / 2;
                     nextRb.angularVelocity = angularVelocity;
+                    
+
                 }
             }
         }
