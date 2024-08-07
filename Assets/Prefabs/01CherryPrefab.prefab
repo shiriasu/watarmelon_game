@@ -10,7 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 907985326309642619, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
       propertyPath: fruitsType
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 907985326309642619, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
+      propertyPath: isDestroyed
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 907985326309642619, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
       propertyPath: nextFruitsPrefab

@@ -207,3 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f848b603188954284a997ee1a210ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fruitsType: 0
+  isDestroyed: 0
+  nextFruitsPrefab: {fileID: 0}
+  score: 0

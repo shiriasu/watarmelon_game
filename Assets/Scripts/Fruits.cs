@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum FRUITS_TYPE
 {
-    さくらんぼ = 1,
+    さくらんぼ = 0,
     いちご,
     ぶどう,
     オレンジ,
@@ -23,8 +24,13 @@ public class Fruits : MonoBehaviour
     private static int fruits_serial = 0;
     private int my_serial;
     public bool isDestroyed = false;
+    public static UnityEvent OnGameOver = new UnityEvent();
+    private bool isInside = false;
 
     [SerializeField] private Fruits nextFruitsPrefab;
+    [SerializeField] private int score;
+
+    public static UnityEvent<int> OnScoreAdded = new UnityEvent<int>();
 
     private void Awake()
     {
@@ -32,20 +38,57 @@ public class Fruits : MonoBehaviour
         fruits_serial++;
     }
 
-        private void OnCollisionEnter2D(Collision2D other)
+    IEnumerator Start()
     {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        while (rb.isKinematic)
+        {
+            yield return null;
+        }
+        yield return new WaitForSeconds(1.0f);
+        if (!isInside)
+        {
+            OnGameOver.Invoke();
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        isInside = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (isDestroyed)
+        {
+            return;
+        }
+        OnGameOver.Invoke();
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (isDestroyed)
+        {
+            return;
+        }
+
         if (other.gameObject.TryGetComponent(out Fruits otherFruits))
         {
             if (otherFruits.fruitsType == fruitsType)
             {
-                Destroy(gameObject);
-                
-                if (nextFruitsPrefab != null && my_serial < otherFruits.my_serial)
+                if (my_serial < otherFruits.my_serial)
                 {
-                    
-                    Destroy(other.gameObject);
+                    OnScoreAdded.Invoke(score);
+
                     isDestroyed = true;
                     otherFruits.isDestroyed = true;
+                    Destroy(gameObject);
+                    Destroy(other.gameObject);
+
+                    if (nextFruitsPrefab == null)
+                    {
+                        return;
+                    }
 
                     Vector3 center = (transform.position + other.transform.position) / 2;
                     Quaternion rotation = Quaternion.Lerp(transform.rotation, other.transform.rotation, 0.5f);
@@ -58,8 +101,6 @@ public class Fruits : MonoBehaviour
 
                     float angularVelocity = (GetComponent<Rigidbody2D>().angularVelocity + other.gameObject.GetComponent<Rigidbody2D>().angularVelocity) / 2;
                     nextRb.angularVelocity = angularVelocity;
-                    
-
                 }
             }
         }

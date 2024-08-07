@@ -9,8 +9,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 907985326309642619, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
+      propertyPath: score
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 907985326309642619, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
       propertyPath: fruitsType
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 907985326309642619, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
       propertyPath: nextFruitsPrefab

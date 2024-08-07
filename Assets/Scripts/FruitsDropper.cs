@@ -13,6 +13,7 @@ public class FruitsDropper : MonoBehaviour
     private void Start()
     {
         StartCoroutine(HandleFruits(coolTime));
+        Fruits.OnGameOver.AddListener(() => enabled = false);
     }
 
     private IEnumerator HandleFruits(float delay)
