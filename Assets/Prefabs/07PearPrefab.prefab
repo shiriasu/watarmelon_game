@@ -25,6 +25,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6503922174229925744, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3405
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503922174229925744, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3405
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503922174229925744, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3405
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503922174229925744, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -66,20 +78,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6677368503732557122, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
       propertyPath: m_Radius
-      value: 0.65
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7610855778020802691, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7610855778020802691, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7905489306977619867, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 5fed2e3ec2d8ac748be998e037bf11ba, type: 3}
+      objectReference: {fileID: 21300000, guid: e33c414335895304f9e1d9be2dbaf28b, type: 3}
     - target: {fileID: 8470947274995183467, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
       propertyPath: m_Name
       value: 07PearPrefab
