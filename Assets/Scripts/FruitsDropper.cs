@@ -35,6 +35,14 @@ public class FruitsDropper : MonoBehaviour
             StartCoroutine(HandleFruits(coolTime));
         }
 
+        if (Input.GetKeyDown(KeyCode.JoystickButton1) && fruitsInstance != null)
+        {
+            fruitsInstance.GetComponent<Rigidbody2D>().isKinematic = false;
+            fruitsInstance.transform.SetParent(null);
+            fruitsInstance = null;
+            StartCoroutine(HandleFruits(coolTime));
+        }  
+
         float horizontal = Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime;
         float x = Mathf.Clamp(transform.position.x + horizontal, -2.5f, 2.5f);
         transform.position = new Vector3(x, transform.position.y, transform.position.z);
