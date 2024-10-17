@@ -14,8 +14,6 @@ public enum FRUITS_TYPE
     なし,
     もも,
     パイナップル,
-    メロン,
-    すいか,
 }
 
 public class Fruits : MonoBehaviour
