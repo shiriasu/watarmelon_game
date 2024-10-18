@@ -35,8 +35,7 @@ public class Fruits : MonoBehaviour
     [SerializeField] private Fruits rewardFruitsPrefab;
  
     // FruitsDropperオブジェクトのTransformを参照
-    [SerializeField] private GameObject fruitsDropperTransform;
- 
+    [SerializeField] private GameObject fruitsDropperGameObjact;
  
     public static UnityEvent<int> OnScoreAdded = new UnityEvent<int>();
  
@@ -120,9 +119,9 @@ public class Fruits : MonoBehaviour
                         if (rewardFruitsPrefab != null)
                         {
                             // FruitsDropperの位置に基づいてリワードフルーツを生成
-                            if (fruitsDropperTransform != null)
+                            if (fruitsDropperGameObjact != null)
                             {
-                                Vector3 spawnPosition = fruitsDropperTransform.transform.position + new Vector3(0, 3, 0); // オフセットを加える
+                                Vector3 spawnPosition = fruitsDropperGameObjact.transform.position + new Vector3(0, 3, 0); // オフセットを加える
                                 Fruits reward = Instantiate(rewardFruitsPrefab, spawnPosition, Quaternion.identity);
  
                                 if (nextFruitsPrefab == null)

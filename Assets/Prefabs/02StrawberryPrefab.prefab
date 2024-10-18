@@ -28,6 +28,10 @@ PrefabInstance:
       propertyPath: fruitsDropperTransform
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 907985326309642619, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
+      propertyPath: fruitsDropperGameObjact
+      value: 
+      objectReference: {fileID: 2052564961345710749, guid: 6f6fb497cc5114a4ca9b4b857f4b754b, type: 3}
     - target: {fileID: 6503922174229925744, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
       propertyPath: m_RootOrder
       value: 0
