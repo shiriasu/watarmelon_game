@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+ 
 public enum FRUITS_TYPE
 {
     さくらんぼ = 0,
@@ -15,7 +15,7 @@ public enum FRUITS_TYPE
     もも,
     パイナップル,
 }
-
+ 
 public class Fruits : MonoBehaviour
 {
     public FRUITS_TYPE fruitsType;
@@ -24,29 +24,28 @@ public class Fruits : MonoBehaviour
     public bool isDestroyed = false;
     public static UnityEvent OnGameOver = new UnityEvent();
     private bool isInside = false;
-
+ 
     [SerializeField] private Fruits nextFruitsPrefab;
     [SerializeField] private int score;
-
+ 
     // Instantiateされたフルーツのカウントを追跡するための変数
     private static int instantiateCount = 0;
-
+ 
     // 5回目で生成するためのフルーツPrefab
     [SerializeField] private Fruits rewardFruitsPrefab;
-
-    // 新しいフルーツを生成する位置
-    [SerializeField] private Vector3 spawnOffset = new Vector3(0, 3, 1);
-
-
-
+ 
+    // FruitsDropperオブジェクトのTransformを参照
+    [SerializeField] private GameObject fruitsDropperTransform;
+ 
+ 
     public static UnityEvent<int> OnScoreAdded = new UnityEvent<int>();
-
+ 
     private void Awake()
     {
         my_serial = fruits_serial;
         fruits_serial++;
     }
-
+ 
     IEnumerator Start()
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
@@ -64,7 +63,7 @@ public class Fruits : MonoBehaviour
     {
         isInside = true;
     }
-
+ 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (isDestroyed)
@@ -73,14 +72,14 @@ public class Fruits : MonoBehaviour
         }
         OnGameOver.Invoke();
     }
-
+ 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (isDestroyed)
         {
             return;
         }
-
+ 
         if (other.gameObject.TryGetComponent(out Fruits otherFruits))
         {
             if (otherFruits.fruitsType == fruitsType)
@@ -88,45 +87,48 @@ public class Fruits : MonoBehaviour
                 if (my_serial < otherFruits.my_serial)
                 {
                     OnScoreAdded.Invoke(score);
-
+ 
                     isDestroyed = true;
                     otherFruits.isDestroyed = true;
                     Destroy(gameObject);
                     Destroy(other.gameObject);
-
+ 
                     if (nextFruitsPrefab == null)
                     {
                         return;
                     }
-
+ 
                     Vector3 center = (transform.position + other.transform.position) / 2;
                     Quaternion rotation = Quaternion.Lerp(transform.rotation, other.transform.rotation, 0.5f);
                     Fruits next = Instantiate(nextFruitsPrefab, center, rotation);
-
+ 
                     // ２つの速度の平均をとる
                     Rigidbody2D nextRb = next.GetComponent<Rigidbody2D>();
                     Vector3 velocity = (GetComponent<Rigidbody2D>().velocity + other.gameObject.GetComponent<Rigidbody2D>().velocity) / 2;
                     nextRb.velocity = velocity;
-
+ 
                     float angularVelocity = (GetComponent<Rigidbody2D>().angularVelocity + other.gameObject.GetComponent<Rigidbody2D>().angularVelocity) / 2;
                     nextRb.angularVelocity = angularVelocity;
-
+ 
                     // Instantiateのカウントをインクリメント
                     instantiateCount++;
-
+ 
                     if (instantiateCount >= 5)
                     {
                         instantiateCount = 0; // カウントをリセット
-
+ 
                         if (rewardFruitsPrefab != null)
                         {
-                            // 上空の任意の位置にリワードフルーツを生成
-                            Vector3 spawnPosition = spawnOffset;
-                            Fruits reward = Instantiate(rewardFruitsPrefab, spawnPosition, Quaternion.identity);
-
-                            if (nextFruitsPrefab == null)
+                            // FruitsDropperの位置に基づいてリワードフルーツを生成
+                            if (fruitsDropperTransform != null)
                             {
-                                return;
+                                Vector3 spawnPosition = fruitsDropperTransform.transform.position + new Vector3(0, 3, 0); // オフセットを加える
+                                Fruits reward = Instantiate(rewardFruitsPrefab, spawnPosition, Quaternion.identity);
+ 
+                                if (nextFruitsPrefab == null)
+                                {
+                                    return;
+                                }
                             }
                         }
                     }
