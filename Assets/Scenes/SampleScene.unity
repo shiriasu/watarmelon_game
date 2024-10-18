@@ -186,7 +186,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1333935239516117495, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -724
+      value: -416
       objectReference: {fileID: 0}
     - target: {fileID: 1349431605472375179, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_UiScaleMode
@@ -243,6 +243,10 @@ PrefabInstance:
     - target: {fileID: 4750094946430594227, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_LocalPosition.y
       value: 473
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928803661257374742, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4947653643979863290, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_Name
@@ -330,7 +334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8774420699554724198, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -164
+      value: -179
       objectReference: {fileID: 0}
     - target: {fileID: 8992403449482575539, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -623,6 +627,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -23
       objectReference: {fileID: 0}
+    - target: {fileID: 4928803661257374742, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4947653643979863290, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_Name
       value: Player_2
@@ -678,6 +686,10 @@ PrefabInstance:
     - target: {fileID: 8525306923169275272, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_NotificationBehavior
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774420699554724198, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 179
       objectReference: {fileID: 0}
     - target: {fileID: 9117274739298383737, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_DefaultControlScheme
