@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class Test : MonoBehaviour
 {
+    public GameObject gameOverPanel;
+
     [SerializeField] private PlayerInput _playerInput;
 
     [SerializeField] private RandomFruitsSelector randomFruitsSelector;
@@ -21,12 +23,18 @@ public class Test : MonoBehaviour
 
     private void Start()
     {
+        if (_playerInput == null)
+        {
+            Debug.LogError("PlayerInput is not assigned!");
+            return;
+        }
+
         _playerInput.actions[_moveActionName].performed += OnMove;
         _playerInput.actions[_moveActionName].canceled += OnMoveCancel;
         _playerInput.actions[_fireActionName].performed += OnFire;
 
         StartCoroutine(HandleFruits(coolTime));
-        Fruits.OnGameOver.AddListener(() => enabled = false);
+        Fruits.OnGameOver.AddListener(OnGameOver);
 
         // PlayerInput のインスタンスが正しいか確認する
         Debug.Log("Player Index: " + _playerInput.playerIndex);
@@ -52,22 +60,25 @@ public class Test : MonoBehaviour
         fruitsInstance.GetComponent<Rigidbody2D>().isKinematic = true;
     }
 
-    //キーを押したとき
+    // キーを押したとき
     private void OnMove(InputAction.CallbackContext context)
     {
+        if (gameOverPanel != null && gameOverPanel.activeSelf) return; // ゲームオーバーパネルが表示されている場合、入力無効化
+
         moveInput = context.ReadValue<Vector2>(); // 移動入力を取得
-        //Debug.Log("Move Input: " + moveInput); // 入力値のデバッグ
     }
 
-    //キーを離したとき
+    // キーを離したとき
     private void OnMoveCancel(InputAction.CallbackContext context)
     {
+        if (gameOverPanel != null && gameOverPanel.activeSelf) return; // ゲームオーバーパネルが表示されている場合、入力無効化
+
         moveInput = Vector2.zero; // 移動入力をリセット
     }
 
     private void OnFire(InputAction.CallbackContext context)
     {
-        if (_playerInput == null || fruitsInstance == null) return;
+        if (_playerInput == null || fruitsInstance == null || (gameOverPanel != null && gameOverPanel.activeSelf)) return;
 
         if (fruitsInstance != null)
         {
@@ -75,12 +86,25 @@ public class Test : MonoBehaviour
             fruitsInstance.transform.SetParent(null);
             fruitsInstance = null;
             StartCoroutine(HandleFruits(coolTime));
-        }  
+        }
+    }
+
+    private void OnGameOver()
+    {
+        // ゲームオーバーパネルが表示されたときに入力を無効化する
+        if (_playerInput != null)
+        {
+            _playerInput.enabled = false;
+        }
+        else
+        {
+            Debug.LogWarning("PlayerInput is null in OnGameOver!");
+        }
     }
 
     private void Update()
     {
-        if (moveInput != Vector2.zero)
+        if (moveInput != Vector2.zero && (gameOverPanel == null || !gameOverPanel.activeSelf))
         {
             // フレームごとに移動量を計算
             float horizontal = moveInput.x * moveSpeed * Time.deltaTime;

@@ -159,7 +159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1333935239516117495, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -49.99997
+      value: -422
       objectReference: {fileID: 0}
     - target: {fileID: 2848765864761778195, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -219,7 +219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5216919188740425121, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 153.00003
+      value: -219
       objectReference: {fileID: 0}
     - target: {fileID: 5617303824055458811, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -251,7 +251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8774420699554724198, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 187
+      value: -185
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -272,7 +272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1333935239516117495, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -422
+      value: -39.99997
       objectReference: {fileID: 0}
     - target: {fileID: 2524394909111558829, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_Color.b
@@ -340,7 +340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5216919188740425121, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -219
+      value: 163.00003
       objectReference: {fileID: 0}
     - target: {fileID: 5482194133030702340, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_Color.b
@@ -380,7 +380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8774420699554724198, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -185
+      value: 197
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -499,7 +499,7 @@ MonoBehaviour:
   m_NotificationBehavior: 2
   m_MaxPlayerCount: 2
   m_AllowJoining: 1
-  m_JoinBehavior: 0
+  m_JoinBehavior: 2
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls:
