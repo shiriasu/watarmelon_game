@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: nextFruitsPrefab
       value: 
       objectReference: {fileID: 2886392857998455952, guid: a85077dd3a6b43844b083e9a88dce158, type: 3}
+    - target: {fileID: 907985326309642619, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
+      propertyPath: rewardFruitsPrefab
+      value: 
+      objectReference: {fileID: 2886392857998455952, guid: a85077dd3a6b43844b083e9a88dce158, type: 3}
     - target: {fileID: 6503922174229925744, guid: 4e40672b93d5dff46b4f0ec6d4c7b1ac, type: 3}
       propertyPath: m_RootOrder
       value: 0

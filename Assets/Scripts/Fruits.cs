@@ -28,6 +28,17 @@ public class Fruits : MonoBehaviour
     [SerializeField] private Fruits nextFruitsPrefab;
     [SerializeField] private int score;
 
+    // Instantiateされたフルーツのカウントを追跡するための変数
+    private static int instantiateCount = 0;
+
+    // 5回目で生成するためのフルーツPrefab
+    [SerializeField] private Fruits rewardFruitsPrefab;
+
+    // 新しいフルーツを生成する位置
+    [SerializeField] private Vector3 spawnOffset = new Vector3(0, 3, 1);
+
+
+
     public static UnityEvent<int> OnScoreAdded = new UnityEvent<int>();
 
     private void Awake()
@@ -99,6 +110,26 @@ public class Fruits : MonoBehaviour
 
                     float angularVelocity = (GetComponent<Rigidbody2D>().angularVelocity + other.gameObject.GetComponent<Rigidbody2D>().angularVelocity) / 2;
                     nextRb.angularVelocity = angularVelocity;
+
+                    // Instantiateのカウントをインクリメント
+                    instantiateCount++;
+
+                    if (instantiateCount >= 5)
+                    {
+                        instantiateCount = 0; // カウントをリセット
+
+                        if (rewardFruitsPrefab != null)
+                        {
+                            // 上空の任意の位置にリワードフルーツを生成
+                            Vector3 spawnPosition = spawnOffset;
+                            Fruits reward = Instantiate(rewardFruitsPrefab, spawnPosition, Quaternion.identity);
+
+                            if (nextFruitsPrefab == null)
+                            {
+                                return;
+                            }
+                        }
+                    }
                 }
             }
         }
