@@ -18,7 +18,9 @@ public class Test : MonoBehaviour
 
     private void Start()
     {
+        //_playerInput.actions[_moveActionName].started   += OnMove;
         _playerInput.actions[_moveActionName].performed += OnMove;
+        //_playerInput.actions[_moveActionName].canceled  += OnMove;
         _playerInput.actions[_fireActionName].performed += OnFire;
 
         StartCoroutine(HandleFruits(coolTime));
@@ -41,9 +43,7 @@ public class Test : MonoBehaviour
     }
 
     private void OnMove(InputAction.CallbackContext context)
-    {   
-        Debug.Log(context.ReadValue<float>());
-
+    {
         float horizontal = context.ReadValue<float>() * moveSpeed * Time.deltaTime;
         float x = Mathf.Clamp(transform.position.x + horizontal, -2.5f, 2.5f);
         transform.position = new Vector3(x, transform.position.y, transform.position.z);

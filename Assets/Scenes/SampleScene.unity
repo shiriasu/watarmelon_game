@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &3384409 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6934574246017481037, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
-  m_PrefabInstance: {fileID: 385000692}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a24ebfeb94aa6548b3f48b6a0370d7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &385000692
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -236,7 +225,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6042394684339666903, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1852584147}
+      addedObject: {fileID: 1852584151}
   m_SourcePrefab: {fileID: 100100000, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
 --- !u!1 &1408820291
 GameObject:
@@ -435,7 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1697283135
+--- !u!114 &1697283139
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -444,7 +433,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1697283130}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4fe825d102681b45ba1052fcb4a04ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 562e7205a73924446bb6318512d19e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _playerInput: {fileID: 1697283132}
@@ -458,18 +447,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6042394684339666903, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
   m_PrefabInstance: {fileID: 385000692}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1852584144 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8525306923169275272, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
-  m_PrefabInstance: {fileID: 385000692}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1852584142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1852584147
+--- !u!114 &1852584151
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -478,11 +456,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1852584142}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4fe825d102681b45ba1052fcb4a04ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 562e7205a73924446bb6318512d19e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerInput: {fileID: 1852584144}
-  randomFruitsSelector: {fileID: 3384409}
+  _playerInput: {fileID: 1697283132}
+  randomFruitsSelector: {fileID: 3860035753342942760}
   moveSpeed: 5
   coolTime: 1
   _moveActionName: Move
@@ -557,7 +535,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6042394684339666903, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1697283135}
+      addedObject: {fileID: 1697283139}
   m_SourcePrefab: {fileID: 100100000, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
 --- !u!114 &3860035753342942760 stripped
 MonoBehaviour:
