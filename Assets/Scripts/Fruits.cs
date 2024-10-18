@@ -34,9 +34,8 @@ public class Fruits : MonoBehaviour
     // 5回目で生成するためのフルーツPrefab
     [SerializeField] private Fruits rewardFruitsPrefab;
 
-    // 新しいフルーツを生成する位置
-    [SerializeField] private Vector3 spawnOffset = new Vector3(0, 3, 1);
-
+    // FruitsDropperオブジェクトをプレハブとして持っているため、シーン上のインスタンスを取得
+    private Rigidbody2D fruitsDropper;
 
 
     public static UnityEvent<int> OnScoreAdded = new UnityEvent<int>();
@@ -45,6 +44,9 @@ public class Fruits : MonoBehaviour
     {
         my_serial = fruits_serial;
         fruits_serial++;
+
+        // シーン上のFruitsDropperオブジェクトを探す
+        fruitsDropper = FindObjectOfType<Rigidbody2D>();
     }
 
     IEnumerator Start()
@@ -120,13 +122,16 @@ public class Fruits : MonoBehaviour
 
                         if (rewardFruitsPrefab != null)
                         {
-                            // 上空の任意の位置にリワードフルーツを生成
-                            Vector3 spawnPosition = spawnOffset;
-                            Fruits reward = Instantiate(rewardFruitsPrefab, spawnPosition, Quaternion.identity);
-
-                            if (nextFruitsPrefab == null)
+                            // シーン上のFruitsDropperの位置を確認し、リワードフルーツを生成
+                            if (fruitsDropper != null)
                             {
-                                return;
+                                Vector3 spawnPosition = fruitsDropper.transform.position + new Vector3(0, 3, 0); // オフセットを加える
+                                Fruits reward = Instantiate(rewardFruitsPrefab, spawnPosition, Quaternion.identity);
+
+                                if (nextFruitsPrefab == null)
+                                {
+                                    return;
+                                }
                             }
                         }
                     }
