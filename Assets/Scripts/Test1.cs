@@ -18,6 +18,8 @@ public class Test : MonoBehaviour
     [SerializeField] private string _moveActionName = "Move";
     [SerializeField] private string _fireActionName = "Fire";
 
+    [SerializeField] Test otherFruitsDropper;
+
     // 現在の移動方向を保存するための変数
     private Vector2 moveInput = Vector2.zero;
 
@@ -57,6 +59,7 @@ public class Test : MonoBehaviour
         var fruitsPrefab = randomFruitsSelector.Pop();
         fruitsInstance = Instantiate(fruitsPrefab, transform.position, Quaternion.identity);
         fruitsInstance.transform.SetParent(transform);
+        fruitsInstance.GetComponent<Fruits>().otherFruitsDropper = otherFruitsDropper;
         fruitsInstance.GetComponent<Rigidbody2D>().isKinematic = true;
     }
 
