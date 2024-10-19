@@ -427,7 +427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1333935239516117495, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -23
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 2848765864761778195, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -501,6 +501,14 @@ PrefabInstance:
       propertyPath: randomFruitsSelector
       value: 
       objectReference: {fileID: 1065312437}
+    - target: {fileID: 6641871398031441158, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641871398031441158, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.09
+      objectReference: {fileID: 0}
     - target: {fileID: 6901682825968606028, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_LocalPosition.y
       value: 300.5
@@ -539,7 +547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7329559496557520764, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 304
+      value: 305.05
       objectReference: {fileID: 0}
     - target: {fileID: 8525306923169275272, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_NotificationBehavior
@@ -569,7 +577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1333935239516117495, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -681
+      value: -695
       objectReference: {fileID: 0}
     - target: {fileID: 2524394909111558829, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_Color.b
@@ -663,6 +671,14 @@ PrefabInstance:
       propertyPath: randomFruitsSelector
       value: 
       objectReference: {fileID: 351375526}
+    - target: {fileID: 6641871398031441158, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641871398031441158, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.07
+      objectReference: {fileID: 0}
     - target: {fileID: 6901682825968606028, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_LocalPosition.y
       value: 101.5
@@ -701,7 +717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7329559496557520764, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 105
+      value: 105.98
       objectReference: {fileID: 0}
     - target: {fileID: 8774420699554724198, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_AnchoredPosition.x
