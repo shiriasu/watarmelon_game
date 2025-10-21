@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class Test : MonoBehaviour
 {
     public GameObject gameOverPanel;
+    private bool isGameOver = false;
 
     [SerializeField] private PlayerInput _playerInput;
 
@@ -36,7 +37,7 @@ public class Test : MonoBehaviour
         _playerInput.actions[_fireActionName].performed += OnFire;
 
         StartCoroutine(HandleFruits(coolTime));
-        Fruits.OnGameOver.AddListener(OnGameOver);
+        //Fruits.OnGameOver.AddListener(OnGameOver);
 
         // PlayerInput のインスタンスが正しいか確認する
         Debug.Log("Player Index: " + _playerInput.playerIndex);
@@ -59,6 +60,10 @@ public class Test : MonoBehaviour
         var fruitsPrefab = randomFruitsSelector.Pop();
         fruitsInstance = Instantiate(fruitsPrefab, transform.position, Quaternion.identity);
         fruitsInstance.transform.SetParent(transform);
+
+        Fruits fruitsComponent = fruitsInstance.GetComponent<Fruits>();
+        fruitsComponent.owner = this; // owner を設定
+
         fruitsInstance.GetComponent<Fruits>().otherFruitsDropper = otherFruitsDropper;
         fruitsInstance.GetComponent<Rigidbody2D>().isKinematic = true;
     }
@@ -92,16 +97,24 @@ public class Test : MonoBehaviour
         }
     }
 
-    private void OnGameOver()
+    public void TriggerGameOver()
     {
-        // ゲームオーバーパネルが表示されたときに入力を無効化する
+        if (isGameOver)
+        {
+            return;
+        }
+        
+        isGameOver = true;
+
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true);
+        }
+
+        // 入力を無効化する
         if (_playerInput != null)
         {
             _playerInput.enabled = false;
-        }
-        else
-        {
-            Debug.LogWarning("PlayerInput is null in OnGameOver!");
         }
     }
 

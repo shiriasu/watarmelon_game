@@ -12,10 +12,13 @@ public class DisplayScore : MonoBehaviour
     private void Start()
     {
         step_time = 0.0f;       // 経過時間初期化
-        Fruits.OnGameOver.AddListener(() => Debug.Log("Game Over"));
+        //Fruits.OnGameOver.AddListener(() => Debug.Log("Game Over"));
 
-        gameOverPanel.SetActive(false);
-        Fruits.OnGameOver.AddListener(() => gameOverPanel.SetActive(true));
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(false);
+        }
+        //Fruits.OnGameOver.AddListener(() => gameOverPanel.SetActive(true));
     }
 
     // Update is called once per frame

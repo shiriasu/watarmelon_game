@@ -22,7 +22,9 @@ public class Fruits : MonoBehaviour
     private static int fruits_serial = 0;
     private int my_serial;
     public bool isDestroyed = false;
-    public static UnityEvent OnGameOver = new UnityEvent();
+    //public static UnityEvent OnGameOver = new UnityEvent();
+    //プレイヤーを覚える変数
+    public Test owner;
     private bool isInside = false;
 
     [SerializeField] private Fruits nextFruitsPrefab;
@@ -58,7 +60,10 @@ public class Fruits : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         if (!isInside)
         {
-            OnGameOver.Invoke();
+            if (owner != null)
+            {
+                owner.TriggerGameOver(); // ownerにゲームオーバーを伝える
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -72,7 +77,10 @@ public class Fruits : MonoBehaviour
         {
             return;
         }
-        OnGameOver.Invoke();
+        if (owner != null)
+        {
+            owner.TriggerGameOver(); // ownerにゲームオーバーを伝える
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)

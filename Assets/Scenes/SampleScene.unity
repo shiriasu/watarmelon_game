@@ -488,6 +488,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4546256730222344524, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
+      propertyPath: gameOverPanel
+      value: 
+      objectReference: {fileID: 2041882754}
     - target: {fileID: 4928803661257374742, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_UiScaleMode
       value: 1
@@ -508,6 +512,10 @@ PrefabInstance:
       propertyPath: _playerInput
       value: 
       objectReference: {fileID: 1587673269}
+    - target: {fileID: 6086488563228005411, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
+      propertyPath: gameOverPanel
+      value: 
+      objectReference: {fileID: 2041882754}
     - target: {fileID: 6086488563228005411, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: otherFruitsDropper
       value: 
@@ -654,6 +662,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4546256730222344524, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
+      propertyPath: gameOverPanel
+      value: 
+      objectReference: {fileID: 1794851112}
     - target: {fileID: 4947653643979863290, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: m_Name
       value: Player1
@@ -682,6 +694,10 @@ PrefabInstance:
       propertyPath: _playerInput
       value: 
       objectReference: {fileID: 775190130}
+    - target: {fileID: 6086488563228005411, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
+      propertyPath: gameOverPanel
+      value: 
+      objectReference: {fileID: 1794851112}
     - target: {fileID: 6086488563228005411, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
       propertyPath: otherFruitsDropper
       value: 
@@ -1322,3 +1338,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 562e7205a73924446bb6318512d19e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1794851112 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5641609208319896065, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
+  m_PrefabInstance: {fileID: 854569975}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2041882754 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5641609208319896065, guid: dc7cf3afa40c34b4ba58a32da40691c9, type: 3}
+  m_PrefabInstance: {fileID: 922948017}
+  m_PrefabAsset: {fileID: 0}
