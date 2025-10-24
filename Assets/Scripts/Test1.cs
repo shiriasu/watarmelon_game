@@ -21,6 +21,9 @@ public class Test : MonoBehaviour
 
     [SerializeField] Test otherFruitsDropper;
 
+    private float autoDropTimer = 0.0f;
+    private const float AUTO_DROP_TIME_LIMIT = 10.0f; // 10秒に設定
+
     // 現在の移動方向を保存するための変数
     private Vector2 moveInput = Vector2.zero;
 
@@ -84,17 +87,27 @@ public class Test : MonoBehaviour
         moveInput = Vector2.zero; // 移動入力をリセット
     }
 
+    private void DropFruit()
+    {
+        // フルーツを持っていないか、ゲームオーバーなら何もしない
+        if (fruitsInstance == null || (gameOverPanel != null && gameOverPanel.activeSelf))
+        {
+            return;
+        }
+
+        // フルーツを落とす処理
+        fruitsInstance.GetComponent<Rigidbody2D>().isKinematic = false;
+        fruitsInstance.transform.SetParent(null);
+        fruitsInstance = null;
+        StartCoroutine(HandleFruits(coolTime));
+    }
+
     private void OnFire(InputAction.CallbackContext context)
     {
         if (_playerInput == null || fruitsInstance == null || (gameOverPanel != null && gameOverPanel.activeSelf)) return;
 
-        if (fruitsInstance != null)
-        {
-            fruitsInstance.GetComponent<Rigidbody2D>().isKinematic = false;
-            fruitsInstance.transform.SetParent(null);
-            fruitsInstance = null;
-            StartCoroutine(HandleFruits(coolTime));
-        }
+        DropFruit();
+        autoDropTimer = 0.0f; // 手動で落とした場合もタイマーリセット
     }
 
     public void TriggerGameOver()
@@ -120,7 +133,21 @@ public class Test : MonoBehaviour
 
     private void Update()
     {
-        if (moveInput != Vector2.zero && (gameOverPanel == null || !gameOverPanel.activeSelf))
+        if (gameOverPanel != null && gameOverPanel.activeSelf)
+        {
+            return; // ゲームオーバー中は以降の処理をしない
+        }
+
+        autoDropTimer += Time.deltaTime; // 毎フレーム時間を加算
+
+        // 10秒経過したら
+        if (autoDropTimer >= AUTO_DROP_TIME_LIMIT)
+        {
+            DropFruit();          // フルーツを落とす
+            autoDropTimer = 0.0f; // タイマーをリセット
+        }
+
+        if (moveInput != Vector2.zero)
         {
             // フレームごとに移動量を計算
             float horizontal = moveInput.x * moveSpeed * Time.deltaTime;
